@@ -2,7 +2,7 @@
 
 To run the project locally, download the files.   
 ```
-$ cd local-library-express <br />
+$ cd local-library-express
 $ npm init
 ```
 This will install all project dependency locally on your machine.  
