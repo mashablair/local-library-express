@@ -9,6 +9,27 @@ const usersRouter = require("./routes/users");
 
 const app = express();
 
+// DB stuff -- full driver code example:
+// const { MongoClient, ServerApiVersion } = require('mongodb');
+// const uri = "mongodb+srv://mashablair:LocalLibrary1@cluster0.6zvlz.mongodb.net/local_library?retryWrites=true&w=majority";
+// const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
+// client.connect(err => {
+//   const collection = client.db("test").collection("devices");
+//   // perform actions on the collection object
+//   client.close();
+// });
+
+// Set up mongoose connection
+const mongoose = require("mongoose");
+mongoose.set("strictQuery", false);
+const mongoDB =
+  "mongodb+srv://mashablair:LocalLibrary1@cluster0.6zvlz.mongodb.net/local_library?retryWrites=true&w=majority";
+
+main().catch((err) => console.log(err));
+async function main() {
+  await mongoose.connect(mongoDB);
+}
+
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "pug");
