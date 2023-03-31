@@ -11,7 +11,7 @@ const app = express();
 
 // DB stuff -- full driver code example:
 // const { MongoClient, ServerApiVersion } = require('mongodb');
-// const uri = "mongodb+srv://mashablair:LocalLibrary1@cluster0.6zvlz.mongodb.net/local_library?retryWrites=true&w=majority";
+// const uri = "some_uri";
 // const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
 // client.connect(err => {
 //   const collection = client.db("test").collection("devices");
@@ -22,8 +22,10 @@ const app = express();
 // Set up mongoose connection
 const mongoose = require("mongoose");
 mongoose.set("strictQuery", false);
-const mongoDB =
-  "mongodb+srv://mashablair:LocalLibrary1@cluster0.6zvlz.mongodb.net/local_library?retryWrites=true&w=majority";
+// this string used to comes from MongoDB Atlas DB service where I set up a DB,
+// but it was not connecting currently so I deleted the cluster
+// TODO: create a local MongoDB and connect using dotenv 16.0.3 package
+const mongoDB = "";
 
 main().catch((err) => console.log(err));
 async function main() {
